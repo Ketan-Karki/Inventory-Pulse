@@ -17,6 +17,10 @@ npm run lint
 npm run preview # serve dist
 ```
 
+### GitHub Pages
+
+Project sites are served under `https://<user>.github.io/<repo>/`, but a root-absolute `/favicon.svg` resolves to `https://<user>.github.io/favicon.svg` and 404s. This project sets Vite `base: './'` in `vite.config.ts` and uses `%BASE_URL%` for the favicon in `index.html` so built assets stay **relative** to the deployed `index.html`. Rebuild and redeploy `dist/` after pulling this change.
+
 ## What you’re looking at
 
 - **Chart:** rolling samples of **commit duration** (ms) and **how many row components painted** in that commit.
